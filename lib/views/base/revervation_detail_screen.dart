@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project_template/views/base/add_room_popup.dart';
 
 class RevervationDetailScreen extends StatefulWidget {
   const RevervationDetailScreen({super.key});
@@ -39,54 +40,65 @@ class _RevervationDetailScreenState extends State<RevervationDetailScreen> {
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(16),
-          child: Container(
-            padding: const EdgeInsets.all(10),
-            decoration: BoxDecoration(
-              color: const Color(0xFFE6E6E6),
-              borderRadius: BorderRadius.circular(8),
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisSize: MainAxisSize.min,
-              children: const [
-                SizedBox(height: 8),
-                ReservationDetailRow(
-                  label: 'Room Name:',
-                  value: 'EL WIRO 1',
-                ),
-                ReservationDetailRow(
-                  label: 'Name:',
-                  value: 'RH',
-                ),
-                ReservationDetailRow(
-                  label: 'Checkin:',
-                  value: '24-01-2024',
-                ),
-                ReservationDetailRow(
-                  label: 'Checkout:',
-                  value: '01-02-2025',
-                ),
-                ReservationDetailRow(
-                  label: 'Number of nights:',
-                  value: '2 Nights',
-                ),
-                ReservationDetailRow(
-                  label: 'Channel:',
-                  value: 'Booking',
-                ),
-                ReservationDetailRow(
-                  label: 'Occupancy:',
-                  value: '2 persons',
-                ),
-                ReservationDetailRow(
-                  label: 'Guest Phone:',
-                  value: '+34 673 722 947',
-                ),
-                ReservationDetailRow(
-                  label: 'Remarks:',
-                  value: 'highchair',
-                ),
-              ],
+          child: InkWell(
+            onTap: () {
+              ///Show a pop up dialog
+              showDialog(
+                context: context,
+                builder: (context) {
+                  return AddRoomPopup();
+                },
+              );
+            },
+            child: Container(
+              padding: const EdgeInsets.all(10),
+              decoration: BoxDecoration(
+                color: const Color(0xFFE6E6E6),
+                borderRadius: BorderRadius.circular(8),
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
+                children: const [
+                  SizedBox(height: 8),
+                  ReservationDetailRow(
+                    label: 'Room Name:',
+                    value: 'EL WIRO 1',
+                  ),
+                  ReservationDetailRow(
+                    label: 'Name:',
+                    value: 'RH',
+                  ),
+                  ReservationDetailRow(
+                    label: 'Checkin:',
+                    value: '24-01-2024',
+                  ),
+                  ReservationDetailRow(
+                    label: 'Checkout:',
+                    value: '01-02-2025',
+                  ),
+                  ReservationDetailRow(
+                    label: 'Number of nights:',
+                    value: '2 Nights',
+                  ),
+                  ReservationDetailRow(
+                    label: 'Channel:',
+                    value: 'Booking',
+                  ),
+                  ReservationDetailRow(
+                    label: 'Occupancy:',
+                    value: '2 persons',
+                  ),
+                  ReservationDetailRow(
+                    label: 'Guest Phone:',
+                    value: '+34 673 722 947',
+                  ),
+                  ReservationDetailRow(
+                    label: 'Remarks:',
+                    value: 'highchair',
+                  ),
+                ],
+              ),
             ),
           ),
         ),
@@ -100,10 +112,10 @@ class ReservationDetailRow extends StatelessWidget {
   final String value;
 
   const ReservationDetailRow({
-    Key? key,
+    super.key,
     required this.label,
     required this.value,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

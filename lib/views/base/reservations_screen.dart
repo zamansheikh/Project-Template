@@ -43,7 +43,7 @@ class _ReservationsScreenState extends State<ReservationsScreen> {
               Row(
                 children: [
                   Expanded(
-                    child: Container(
+                    child: SizedBox(
                       height: 45,
                       child: ListView.builder(
                         scrollDirection: Axis.horizontal,

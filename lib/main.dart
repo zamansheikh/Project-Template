@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:project_template/themes/dark_theme.dart';
 import 'package:project_template/themes/light_theme.dart';
 import 'package:project_template/utils/app_constants.dart';
 import 'package:project_template/utils/message.dart';
